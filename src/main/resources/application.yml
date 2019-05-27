@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: otp-service
+  datasource:
+    url: jdbc:mysql://192.168.99.100:3306/otp_db?createDatabaseIfNotExist=true
+    username: root
+    password: secret
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+    
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+      
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        show_sql: true
+        format_sql: true
+        
+otp:
+ expiration: 300
+ max:
+  attempts: 3
